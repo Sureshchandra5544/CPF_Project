@@ -4,7 +4,7 @@
 #include<sys/types.h>
 #include<sys/socket.h>
 #include<string.h>
-#define PORT 2022
+#define PORT 2025
 #define server_ip "127.0.0.1"
 #define max 100
 

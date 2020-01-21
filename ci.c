@@ -10,6 +10,7 @@ char* User_Validation(char *cInput_Buffer)
 	char *str;
 	bool flag=false;
       
+	printf("cInput_Buffer =>%s",cInput_Buffer);
 	str=(char*)malloc(10*sizeof(char));
 	while(cInput_Buffer[i]!='\0'){
 		if(cInput_Buffer[i]==':'){
@@ -35,20 +36,26 @@ int Command_Interpreter( char *cInput_Buffer )
 	int iOpt=0,iLength=0,i=0,iCommand_Length=0,j=0,sid;
 	int iUid=1000;
 	iLength=strlen(cInput_Buffer);
+
 	while(cInput_Buffer[iCommand_Length]!=':')
 		iCommand_Length++;
+
 	for(i=0;i<iCommand_Length;i++)
 		cCommand[j++]=cInput_Buffer[i];
+	
+	printf("\ncCommand =>%s",cCommand);
 	cCommand[++j]='\0';
 	j=0;	
+
 	for(i=iCommand_Length+1;cInput_Buffer[i]!='\0';i++)
 		cInput_Fields[j++]=cInput_Buffer[i];
+
+	printf("\ncInput_Fields =>%s",cInput_Fields);
 	cInput_Buffer[++j]='\0';
+
 	if(strcmp(cCommand,"REG_USR")==0){
 		return uim_reg_usr(cInput_Fields);
 	}
-	//printf()
-	//
 	/*
 	 if(strcmp(cCommand,"REG_SVC")==0){	
                  sid=svc_reg(cInput_Fields,iUid);
