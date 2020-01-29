@@ -12,7 +12,7 @@ void* multithread(void *arg)
         char *buffer1;
    	buffer1=(char *)malloc(1024 *sizeof(char)); 
 	memset(buffer1,0,sizeof(buffer1));
-	fptr=fopen("ifconfig_ser222.txt","w+");
+	fptr=fopen("ifconfig.txt","w+");
 	while(recv(newsock_fd,buffer1,1024,0)!=NULL)
 	{	
 	fwrite(buffer1,sizeof(char),strlen(buffer1),fptr);
@@ -62,20 +62,5 @@ int main()
        	}
 	return 0;
 }
-/*
-void input_file(char *buffer)
-{
-//char *buffer = "Hai Hello";
-   FILE *fptr;
-   fptr = fopen("program.txt","w");
-   if(fptr == NULL)
-   {
-      printf("Error!");   
-      exit(1);             
-   }
-   fprintf(fptr,"%s",buffer);
-   fclose(fptr);
-}
-*/
 
 
